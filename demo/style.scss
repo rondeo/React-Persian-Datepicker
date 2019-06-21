@@ -1,0 +1,75 @@
+@import '../src/style.scss';
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
+
+#container {
+  font-family: Nunito,IRANSans,sans-serif;
+}
+
+.container {
+  margin: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.options {
+  width: 100%;
+  flex: 0 0 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.calendar {
+  width: 33.33%;
+  flex: 0 0 33.33%;
+}
+
+.datepicker {
+  flex: 0 0 300px;
+  width: 300px;
+  margin: auto;
+  text-align: center;
+
+  &.dark {
+    $bg-color: #21252b;
+    $color: #abb2bf;
+    $blue: #61afef;
+    .picker {
+      background-color: $bg-color;
+      color: $color;
+      fill: $color;
+
+      .header,
+      .week-days {
+        color: darken(#eee, 10%);
+        fill: darken(#eee, 10%);
+        .go-to-today {
+          color: $blue;
+          &:hover {
+            color: darken($blue, 10%);
+          }
+        }
+      }
+
+      .next,
+      .prev {
+        color: #5c6370;
+      }
+
+      tr td:not(.today):not(.selected):not(.disabled):not(.prev):not(.next):hover {
+        background-color: lighten($bg-color, 10%);
+        color: lighten($color, 10%);
+      }
+
+      tr td.today {
+        background-color: darken($blue, 10%);
+        color: lighten($color, 30%)
+      }
+      tr td.selected {
+        background-color: $blue;
+        color: lighten($color, 30%)
+      }
+    }
+  }
+}
